@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Andale Mono", monospace;
+}
+
+/* html {
+  font-family: FreeMono;
+} */
+
+body {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.first_paren {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 20px;
+  width: 320px;
+  height: 568px;
+  padding:20px;
+  background-color: white;
+}
+
+.parent-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  width: 200px;
+  height: 500px;
+  background-color: white;
+}
+
+.left_lab {
+  display: flex;
+  margin-right: auto;
+  width: 80px;
+  height: 20px;
+}
+
+.skill {
+  width: 160px;
+  height: 160px;
+  background-color: white;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  /* display: 1; */
+}
+
+#skill {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#skill.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.outer {
+  height: 160px;
+  width: 160px;
+  padding: 20px;
+  background-color: #dbe6ec;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid opacity;
+  border-radius: 50%;
+}
+
+.inner {
+  height: 130px;
+  width: 130px;
+  border: 1px solid opacity;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+#numder {
+  font-weight: 600px;
+  color: black;
+}
+
+#progressCircle {
+  fill: none;
+  stroke: #245bfc;
+  stroke-width: 15px;
+  stroke-dasharray: 456;
+  stroke-dashoffset: 456;
+}
+
+@keyframes anim {
+  100% {
+    stroke-dashoffset: var(--progress, 456);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-90deg) translate(0, 0);
+    transform-origin: center;
+  }
+  to {
+    transform: rotate(270deg) translate(0, 0);
+    transform-origin: center;
+  }
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.inpt_num {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  width: 34px;
+  height: 21px;
+  border: 1px solid black;
+  text-align: center;
+  outline: none;
+}
+
+.controls {
+  width: 200px;
+  height: 150px;
+  background-color: white;
+  justify-content: center;
+}
+
+.str_states {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 200px;
+  gap: 10px;
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+.move {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0px;
+  left: 0px;
+  background: #dbe6ec;
+  border-radius: 15px;
+  border: 1px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.move::before {
+  position: absolute;
+  content: "";
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: 10%;
+  bottom: 0;
+  left: 1px;
+  transition: 0.5s;
+}
+
+input:checked + .move {
+  background: #245bfc;
+  /* border: 1px solid transparent; */
+}
+
+input:checked + .move::before {
+  transform: translateX(16px);
+}
+
+.signatures {
+  height: 20px;
+  width: 60px;
+  background-color: white;
+}
+
+/* ------------------------------------------------------- */
+
+
+/* Добавленные медиа-запросы */
+   
+
+@media (min-aspect-ratio: 538/320) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+  }
+
+  .first_paren {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 20px;
+    width: 568px;
+    height: 320px;
+    padding:20px;
+
+  }
+
+  .parent-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+    width: 500px;
+    height: 200px;
+
+  }
+
+  .controls{
+    align-content: center;
+  }
+
+
+}
+

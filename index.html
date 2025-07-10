@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Progress Bar</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/app.js"></script>
+  </head>
+
+  <body>
+    <div class="first_paren">
+      <div class="left_lab"><label>Progress</label></div>
+      <div class="parent-flex">
+        <div class="skill" id="skill">
+          <div class="outer">
+            <div class="inner">
+              <!-- <div id="number"></div> -->
+            </div>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            width="160px"
+            height="160px"
+          >
+            <defs>
+              <linearGradient id="GradientColor">
+                <stop offset="0%" stop-color="#DA22FF" />
+                <stop offset="100%" stop-color="#9733EE" />
+              </linearGradient>
+            </defs>
+            <circle
+              cx="80"
+              cy="80"
+              r="72.5"
+              stroke-linecap="butt"
+              transform="rotate(-90 80 80)"
+              id="progressCircle"
+            />
+          </svg>
+        </div>
+
+        <div class="controls">
+          <div class="str_states">
+            <input
+              type="text"
+              id="progressInput"
+              class="inpt_num"
+              name="name"
+            />
+            <label class="signatures">Value</label>
+          </div>
+          <div class="str_states">
+            <label class="switch">
+              <input type="checkbox" id="animate" class="inpt_ch" />
+              <span class="move"></span>
+            </label>
+            <label class="signatures">Animate</label>
+          </div>
+          <div class="str_states">
+            <label class="switch">
+              <input type="checkbox" id="hide" class="inpt_ch" />
+              <span class="move"></span>
+            </label>
+            <label class="signatures">Hide</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
