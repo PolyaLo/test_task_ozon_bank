@@ -13,24 +13,22 @@
     <div class="first_paren">
       <div class="left_lab"><label>Progress</label></div>
       <div class="parent-flex">
+        <!-- circular progress container -->
         <div class="skill" id="skill">
           <div class="outer">
-            <div class="inner">
-              <!-- <div id="number"></div> -->
-            </div>
+            <!-- outer circle -->
+            <div class="inner"></div>
+            <!-- outer circle -->
           </div>
+          <!-- svg element for progress animation -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             width="160px"
             height="160px"
           >
-            <defs>
-              <linearGradient id="GradientColor">
-                <stop offset="0%" stop-color="#DA22FF" />
-                <stop offset="100%" stop-color="#9733EE" />
-              </linearGradient>
-            </defs>
+            <!-- main circle of progress with dimensions,
+            line ending style, and rotation for starting from the top point -->
             <circle
               cx="80"
               cy="80"
@@ -41,8 +39,9 @@
             />
           </svg>
         </div>
-
+        <!-- control panel -->
         <div class="controls">
+          <!-- the field for entering the progress value -->
           <div class="str_states">
             <input
               type="text"
@@ -52,6 +51,7 @@
             />
             <label class="signatures">Value</label>
           </div>
+          <!-- animation switch -->
           <div class="str_states">
             <label class="switch">
               <input type="checkbox" id="animate" class="inpt_ch" />
@@ -59,6 +59,7 @@
             </label>
             <label class="signatures">Animate</label>
           </div>
+          <!-- visibility switch -->
           <div class="str_states">
             <label class="switch">
               <input type="checkbox" id="hide" class="inpt_ch" />
