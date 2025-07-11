@@ -17,20 +17,11 @@
 - CSS3 (Flexbox, анимация, медиа-запросы)
 - JavaScript (манипуляции с DOM, обработка событий)
 
-  
-##
-Циклический индикатор выполнения структуры файла/
-├── index.html # Основная структура HTML
-├── css/
-│ └── style.css # Все правила оформления
-└── js/
-    └── app.js # Интерактивные 
-
-    
+      
 ## Как использовать
 1. Введите значение (от 0 до 100) в поле ввода и нажмите Enter
-2. Переключите переключатель "Анимировать", чтобы включить/отключить вращение
-3. Используйте переключатель "Скрыть", чтобы отобразить/скрыть индикатор выполнения
+2. Переключите переключатель "Animate", чтобы включить/выключить вращение
+3. Используйте переключатель "Hide", чтобы скрыть/показать индикатор
 
 ## Ключевые детали реализации
 
@@ -39,45 +30,44 @@
 - Круг прогресса на основе SVG с анимацией обводки
 - Переменные CSS для динамического расчета прогресса
 - Медиа-запросы для адаптации ориентации
-- Плавные переходы для всех интерактивных элементов
 - Переключатели в пользовательском стиле с анимацией
 
 ### Функциональность JavaScript
-// Обновлять прогресс при вводе клавиши
-progressInput.addEventListener("нажатие клавиши", функция(e) {
-  если (например,клавиша === "Ввод") {
-    const value = parseInt(это значение);
-    если (значение >= 0 && значение <= 100) {
-      Текущий прогресс = значение;
-      Процесс обновления(значение);
+// Update progress on Enter key
+progressInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    const value = parseInt(this.value);
+    if (value >= 0 && value <= 100) {
+      currentProgress = value;
+      updateProgress(value);
     }
   }
 });
 
-// Функция визуализации хода обновления
-UpdateProgress(значение) {
-  const maxOffset = 456; // 2*π*r (2*3.14*72.5 )
-  const newOffset = maxOffset - (значение maxOffset *) / 100;
-  progressCircle.style.setProperty("--прогресс", newOffset);
+// Update progress visualization
+function updateProgress(value) {
+  const maxOffset = 456; // 2*π*r (2*3.14*72.5)
+  const newOffset = maxOffset - (maxOffset * value) / 100;
+  progressCircle.style.setProperty("--progress", newOffset);
   
-  // Сбросить и перезапустить анимацию
-progressCircle.style.animation = "нет";
-  аннулировать progressCircle.offsetHeight;
-  progressCircle.style.animation = "анимировать на 2 секунды вперед";
+  // Reset and restart animation
+  progressCircle.style.animation = "none";
+  void progressCircle.offsetHeight;
+  progressCircle.style.animation = "anim 2s forwards";
 }
 
-// Обработать переключение
-анимации animateToggle.addEventListener("изменить", функция() {
-if (this.checked) {
-    progressCircle.style.animation = "вращать 2 секунды бесконечно линейно, двигаясь вперед на 0,1 секунды";
-  } еще {
-    progressCircle.style.animation = "двигаясь вперед на 0,1 секунды";
+// Handle animation toggle
+animateToggle.addEventListener("change", function() {
+  if (this.checked) {
+    progressCircle.style.animation = "rotate 2s infinite linear, anim 0.1s forwards";
+  } else {
+    progressCircle.style.animation = "anim 0.1s forwards";
   }
 });
 
-// Обработать переключатель видимости
-hideToggle.addEventListener("изменить", функция() {
-styleToggle.classList.toggle("скрытый", this.checked);
+// Handle visibility toggle
+hideToggle.addEventListener("change", function() {
+  styleToggle.classList.toggle("hidden", this.checked);
 });
 ## Адаптивный дизайн
 Макет автоматически адаптируется в зависимости от соотношения сторон экрана:
