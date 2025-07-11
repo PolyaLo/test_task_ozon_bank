@@ -30,5 +30,5 @@
 - Альбомный (минимальное соотношение сторон: 538/320): Горизонтальный макет
 
 ## Деплой
-    > *Приложение доступно по адресу: [(https://polyalo.github.io/test_task_ozon_bank/)]((https://polyalo.github.io/test_task_ozon_bank/))*
+Приложение доступно по адресу: [https://polyalo.github.io/test_task_ozon_bank/](https://polyalo.github.io/test_task_ozon_bank/)
 
