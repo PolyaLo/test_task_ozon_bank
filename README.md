@@ -24,5 +24,5 @@
 3. Используйте переключатель "Hide", чтобы скрыть/показать индикатор
 
 ## Деплой
-Приложение доступно по адресу: [https://polyalo.github.io/test_task_ozon_bank/](https://polyalo.github.io/test_task_ozon_bank/)
+Проект доступн по адресу: [https://polyalo.github.io/test_task_ozon_bank/](https://polyalo.github.io/test_task_ozon_bank/)
 
