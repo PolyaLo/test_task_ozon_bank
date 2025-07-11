@@ -1,99 +1,57 @@
-// // Получаем элемент input по ID
-// const progressInput = document.getElementById("progressInput");
-// const circle = document.getElementById("progressCircle");
-
-// progressInput.addEventListener("keypress", function (e) {
-//   if (e.key === "Enter") {
-//     const value = this.value;
-//     console.log("Значение по Enter:", value);
-
-//     // Действия с полученным значением
-//     const maxOffset = 456;
-//     const newOffset = maxOffset - (maxOffset * value) / 100;
-//     // Обновляем CSS-переменную или напрямую свойство
-//     circle.style.setProperty("--progress", newOffset);
-//     // Перезапускаем анимацию
-//     circle.style.animation = "none";
-//     void circle.offsetHeight; // Триггер reflow
-//     circle.style.animation = null;
-//     requestAnimationFrame(() => {
-//       circle.style.animation = "anim 2s forwards";
-//     });
-//   }
-// });
-
-// document.getElementById("animate").addEventListener("change", function () {
-//   const animateToggle = document.getElementById("animate");
-
-//   animateToggle.addEventListener("change", function () {
-//     if (this.checked) {
-//       console.log("вкл вращение");
-//       circle.style.animation = "rotate 2s infinite"; // запуск анимации
-//     } else {
-//       circle.style.animation = "none"; // остановка анимации
-//     }
-//   });
-// });
-
-// Получаем элемент input по ID
+// getting progress from a user by id
 const progressInput = document.getElementById("progressInput");
-const circle = document.getElementById("progressCircle");
+
+// managing the progress ring
+const progressCircle = document.getElementById("progressCircle");
+// animation and hide switches
 const animateToggle = document.getElementById("animate");
 const hideToggle = document.getElementById("hide");
+// block circular progress
 const styleToggle = document.getElementById("skill");
-// Текущее значение прогресса (по умолчанию 0)
+// сurrent progress value (default is 0)
 let currentProgress = 0;
 
-// Обработчик ввода значения
+// processing of value input the field of pressing enter
 progressInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     const value = parseInt(this.value);
+    // checking the progress value
     if (value >= 0 && value <= 100) {
       currentProgress = value;
       updateProgress(value);
     } else {
-      alert("Введите число от 0 до 100");
+      alert("Enter a number from 0 to 100");
     }
   }
 });
 
-// Обновление прогресс-бара
+// updating the progress bar
 function updateProgress(value) {
-  const maxOffset = 456;
+  const maxOffset = 456; // 2*pi*r(2*3.14*72.5)
   const newOffset = maxOffset - (maxOffset * value) / 100;
-
-  circle.style.setProperty("--progress", newOffset);
-  circle.style.animation = "none";
-  void circle.offsetHeight; // Триггер reflow
+  // starting the progress animation after getting a new value
+  progressCircle.style.setProperty("--progress", newOffset); //passing a new value to the --progress variable
+  progressCircle.style.animation = "none"; // resetting the animation
+  void progressCircle.offsetHeight; // forced launch reflow
+  // delay for animation and start a new one
   requestAnimationFrame(() => {
-    circle.style.animation = 'anim 2s forwards';
+    progressCircle.style.animation = "anim 2s forwards";
   });
 }
 
-// Обработчик animate
+// animate handler
 animateToggle.addEventListener("change", function () {
   if (this.checked) {
-    // Если анимация включена, вращаем круг с сохранением текущего прогресса
-    circle.style.animation = `rotate 2s infinite linear, anim 0.1s forwards`;
+    // if animation is enabled, rotate the circle while maintaining the current progress
+    progressCircle.style.animation = `rotate 2s infinite linear, anim 0.1s forwards`;
   } else {
-    // Если анимация выключена, останавливаем вращение, но сохраняем прогресс
-    circle.style.animation = `anim 0.1s forwards`;
+    // if the animation is turned off, stop the rotation, but save the progress
+    progressCircle.style.animation = `anim 0.1s forwards`;
   }
 });
 
-// // Обработчик hide
-// hideToggle.addEventListener("change", function () {
-//   if (this.checked) {
-//     styleToggle.style.setProperty("--hide", "none");
-//     console.log("hide вкл");
-//   } else {
-//     styleToggle.style.setProperty("--hide");
-//     console.log("hide выкл");
-//   }
-// });
-
-const skillElement = document.getElementById("skill");
-
+// hide handler
+// the hide handler is a hidden application for #skill
 hideToggle.addEventListener("change", function () {
   styleToggle.classList.toggle("hidden", this.checked);
 });
