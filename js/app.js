@@ -11,6 +11,11 @@ const styleToggle = document.getElementById("skill");
 // сurrent progress value (default is 0)
 let currentProgress = 0;
 
+// checking the input, if the number is greater than 100, then 100 is automatically entered
+document.getElementById("progressInput").addEventListener("input", function () {
+  this.value = Math.min(100, Math.max(0, parseInt(this.value) || 0));
+});
+
 // processing of value input the field of pressing enter
 progressInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
