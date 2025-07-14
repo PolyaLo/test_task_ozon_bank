@@ -99,6 +99,13 @@ body {
   color: black;
 }
 
+/* removing the default arrows on the right */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #progressCircle {
   fill: none;
   stroke: #245bfc;
